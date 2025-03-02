@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <h2>FITUP</h2>
+    <div class="container">
+        <form method="POST">
+            <h1>LOG IN</h1>
+            <div>
+                <input type="text" name="email" id="email" placeholder="EMAIL">
+            </div>
+            <br>
+            <div>
+                <input type="password" id="pass" name="password" placeholder="PASSWORD" minlength="8" required />
+            </div>
+            <p1 id="id-recover-pass">FORGOT YOUR PASSWORD?</p1>
+                <button id="login-btn">LOG IN</button>
+                <br>
+                <br>
+                <br>
+                <p2>DON'T HAVE AN ACCOUNT?</p>
+                <a href=" signup.html">SIGN UP NOW</a>
+        </form>
+
+        <div class="img">
+            <img src="./img/sportsmen.png" height="200">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module">
+        import api from "./api.js";
+
+        async function handleAuth() {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("pass").value;
+
+            if (!email || !password) {
+                alert("Please enter both email and password.");
+                return;
+            }
+
+            try {
+                const response = await api.post("/api/user/login/", { email, password });
+                if (response.status == 200) {
+                    console.log(response.data)
+                    localStorage.setItem("ACCESS_TOKEN", response.data.access);
+                    localStorage.setItem("REFRESH_TOKEN", response.data.refresh);
+                    localStorage.setItem("USERID", response.data.user.id);
+                    window.location = '/frontend/main.html'
+                }
+            }
+            catch (error) {
+                // console.error("Authentication failed:", error);                
+                if (error.response && error.response.status === 400) {
+                    alert("Invalid email or password. Please try again.");
+                } else {
+                    alert("An error occurred. Please try again later.");
+                }
+            }
+        }
+
+        document.getElementById("login-btn").addEventListener("click", handleAuth);
+        document.getElementById("id-recover-pass").addEventListener("click", () => {window.location = '/frontend/recover_pass.html'});        
+    </script>
+</body>
+
+</html>

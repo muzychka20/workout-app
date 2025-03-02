@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FITUP</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 400;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .logo {
+      color: #DFFF00;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .nav a:hover {
+      color: #DFFF00;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .recommendation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+    }
+    .section-title {
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+    .training-report {
+      border: 2px solid #DFFF00;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .training-report:hover {
+      background-color: #DFFF00;
+      color: #000;
+    }
+
+    h3 {
+      text-transform: uppercase;
+      margin-top: 30px;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .grid > div {
+      text-align: center;
+      max-width: 250px;
+    }
+    .box {
+      background-color: #444;
+      width: 250px;
+      height: 150px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .description {
+      font-size: 14px;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    .grid a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .fitness-ai-header {
+      margin-top: 60px;
+      font-size: 24px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+
+    .fitness-ai {
+      margin: 10px auto 0 auto;
+      border: 2px solid #DFFF00;
+      padding: 40px 20px;
+      text-align: center;
+      max-width: 500px;
+    }
+
+
+    .help-title {
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      width: 300px; 
+      margin: 0 auto 30px auto;
+    }
+
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn-help {
+      width: 300px;
+      border: 2px solid #fff;
+      padding: 10px;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .btn-help:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .btn-meal {
+      width: 250px;
+      border: 1px solid #fff;
+      padding: 10px;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .btn-meal:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .input-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 500px;
+      margin: 0 auto;
+      margin-top: 20px;
+      position: relative;
+      border: 2px solid #DFFF00;
+      padding: 0 15px;
+      height: 50px;
+    }
+    .input-box input {
+      flex: 1;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      text-transform: uppercase;
+    }
+    .send-button {
+      width: 36px;
+      height: 36px;
+      border: 2px solid #DFFF00;
+      background-color: transparent;
+      border-radius: 50%;
+      color: #DFFF00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      margin-left: 10px; 
+    }
+    .send-button:hover {
+      background-color: #DFFF00;
+      color: #000;
+    }
+    .input-box button {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .input-box button:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">FITUP</div>
+    <div class="nav">
+      <a href="#">Workout</a>
+      <a href="#">Profile</a>
+      <a href="#">Settings</a>
+      <a href="#">Advice</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="recommendation-header">
+      <h2 class="section-title">RECOMMENDED FOR YOU</h2>
+      <div class="training-report">TRAINING REPORT</div>
+    </div>
+
+    <h3>WARM-UP</h3>
+    <div class="grid">
+      <div>
+        <a href="https://youtu.be/n_qbGJuxCYY?si=8PpKS0zqaHUehglA" target="_blank">
+          <div class="box"></div>
+        </a>
+        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+      <div>
+        <a href="https://youtu.be/n_qbGJuxCYY?si=8PpKS0zqaHUehglA" target="_blank">
+          <div class="box"></div>
+        </a>
+        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+      <div>
+        <a href="https://youtu.be/n_qbGJuxCYY?si=8PpKS0zqaHUehglA" target="_blank">
+          <div class="box"></div>
+        </a>
+        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+    </div>
+
+    <h3>STRENGTH TRAINING</h3>
+    <div class="grid">
+      <div>
+        <a href="https://youtu.be/dQw4w9WgXcQ?si=giYu60sgotS1ekj9" target="_blank">
+          <div class="box"></div>
+        </a>
+        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+      <div>
+        <a href="https://youtu.be/dQw4w9WgXcQ?si=giYu60sgotS1ekj9" target="_blank">
+          <div class="box"></div>
+        </a>
+        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+      <div>
+        <a href="https://youtu.be/dQw4w9WgXcQ?si=giYu60sgotS1ekj9" target="_blank">
+          <div class="box"></div>
+        </a>
+        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+    </div>
+    <h3>CARDIO</h3>
+    <div class="grid">
+      <div>
+        <a href="https://youtu.be/sVjk5nrb_lI?si=4gZc2TAWsSy3LBFA" target="_blank">
+          <div class="box"></div>
+        </a>
+        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+      <div>
+        <a href="https://youtu.be/sVjk5nrb_lI?si=4gZc2TAWsSy3LBFA" target="_blank">
+          <div class="box"></div>
+        </a>
+        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+      <div>
+        <a href="https://youtu.be/sVjk5nrb_lI?si=4gZc2TAWsSy3LBFA" target="_blank">
+          <div class="box"></div>
+        </a>
+        <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+    </div>
+
+    <h2 class="fitness-ai-header">FITNESS AI</h2>
+
+    <div class="fitness-ai">
+      <div class="help-title">HOW CAN I HELP YOU?</div>
+
+      <div class="buttons">
+        <button class="btn-help">How to recover quickly after a workout?</button>
+        <button class="btn-meal">Make a daily meal plan for me</button>
+      </div>
+
+      <div class="input-box">
+        <input type="text" placeholder="ENTER TEXT" />
+        <button class="send-button">↑</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
