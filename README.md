@@ -23,7 +23,12 @@ python manage.py createsuperuser
 ```
 Follow the prompts to enter a username, email, and password.
 
-### 4️⃣ Start the Server
+### 4️⃣ Load the initial data for tables in database
+```
+python manage.py loaddata initial_data.json
+```
+
+### 5️⃣ Start the Server
 ```sh
 python manage.py runserver
 ```

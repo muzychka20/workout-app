@@ -1,0 +1,19 @@
+[
+    { "model": "api.PhysicalLevel", "pk": 1, "fields": { "name": "Beginner" } },
+    { "model": "api.PhysicalLevel", "pk": 2, "fields": { "name": "Intermediate" } },
+    { "model": "api.PhysicalLevel", "pk": 3, "fields": { "name": "Advanced" } },
+
+    { "model": "api.Sex", "pk": 1, "fields": { "name": "Male" } },
+    { "model": "api.Sex", "pk": 2, "fields": { "name": "Female" } },
+
+    { "model": "api.BodyType", "pk": 1, "fields": { "name": "Ectomorph" } },
+    { "model": "api.BodyType", "pk": 2, "fields": { "name": "Mesomorph" } },
+    { "model": "api.BodyType", "pk": 3, "fields": { "name": "Endomorph" } },
+
+    { "model": "api.Goal", "pk": 1, "fields": { "name": "Lose weight" } },
+    { "model": "api.Goal", "pk": 2, "fields": { "name": "Build muscle" } },
+    { "model": "api.Goal", "pk": 3, "fields": { "name": "Get toned" } },
+
+    { "model": "api.TrainingType", "pk": 1, "fields": { "name": "Cardio", "duration_sec": "3600", "duration_name": "1 hour" } },
+    { "model": "api.TrainingType", "pk": 2, "fields": { "name": "Power", "duration_sec": "3600", "duration_name": "1 hour" } }
+]
