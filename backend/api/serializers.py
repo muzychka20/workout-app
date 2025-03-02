@@ -1,13 +1,19 @@
-from api.models import User
+from api.models import User, Goal, TrainingType, Sex, BodyType, PhysicalLevel
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 
 
-class UserSerializer(serializers.Serializer):
-    username = serializers.CharField()
-    email = serializers.CharField()
-    password = serializers.CharField(write_only=True)
-    confirm_password = serializers.CharField(write_only=True)
+class UserSerializer(serializers.ModelSerializer):
+    # goal = serializers.StringRelatedField()
+    # body_type = serializers.StringRelatedField()
+    # sex = serializers.StringRelatedField()
+    # physical_level = serializers.StringRelatedField()
+
+    class Meta:
+        model = User
+        fields = [
+            "id", "username", "email", "goal", "body_type", "sex", "physical_level", "registered_time", "age", "weight", "height"
+        ]
 
     def validate(self, data):
         username = data.get("username")
@@ -69,3 +75,43 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError({"detail": {"errors": errors}})
 
         return {'user': user}
+
+
+class GoalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Goal
+        fields = [
+            "id", "name"
+        ]
+
+
+class PhysicalLevelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PhysicalLevel
+        fields = [
+            "id", "name"
+        ]
+
+
+class BodyTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BodyType
+        fields = [
+            "id", "name"
+        ]
+
+
+class SexTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sex
+        fields = [
+            "id", "name"
+        ]
+
+
+class TrainingTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrainingType
+        fields = [
+            "id", "name", "duration_sec", "duration_name"
+        ]

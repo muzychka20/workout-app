@@ -60,7 +60,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     id = models.IntegerField(primary_key=True, blank=False, null=False)
 
     username = models.CharField(
-        max_length=100, unique=True, blank=False, null=False)
+        max_length=100, unique=True, blank=True, null=True)
     email = models.EmailField(
         max_length=100, unique=True, blank=False, null=False)
 
@@ -97,7 +97,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = 'User'
 
     def __str__(self):
-        return self.username
+        return f"{self.email} {self.username if self.username else ''}"
 
 
 class Article(models.Model):
